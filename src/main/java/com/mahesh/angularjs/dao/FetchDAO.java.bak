@@ -87,16 +87,13 @@ public class FetchDAO {
 			// TODO: handle exception
 		}
 		return null;
-		
 	}
 	
-	// rajendra method
 	
 	
-	public void testMethod()
-	{
-		System.out.println("git test");
-	}	
+	
+	
+	
 	
 	
 	
