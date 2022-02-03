@@ -17,7 +17,8 @@ public class ContactServiceImpl implements ContactService
 
 	    @Override
 	    @Transactional
-	    public void addContact(Contact Cont) {
+	    public void addContact(Contact cont)
+	    {
 	    fetchDAO.addContact(cont);
 	    }
 
@@ -30,49 +31,23 @@ public class ContactServiceImpl implements ContactService
 
 	    @Override
 	    @Transactional
-	    public void deleteContact(Integer contactId) {
+	    public void deleteContact(Integer contactId) 
+	    {
 	    	fetchDAO.deleteContact(contactId);
 	    }
 
-	    public Contact getContact(int contactId) {
+	    public Contact getContact(int contactId) 
+	    {
 		return fetchDAO.getContact(contactId);
 	    }
 
-	    public Contact updateContact(Contact cont) {
+	    public Contact updateContact(Contact cont)
+	    {
 		return fetchDAO.updateContact(cont);
 	    }
 
-	    public void setFetchDAO(FetchDAO fetchDAO) {
+	    public void setFetchDAO(FetchDAO fetchDAO)
+	    {
 		this.fetchDAO = fetchDAO;
-	    }
-
-		@Override
-		public void addContact(Contact Cont) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public List<Contact> getAllContacts() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public void deleteContact(Integer contactId) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public Contact getContact(int contactid) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public Contact updateContact(Contact cont) {
-			// TODO Auto-generated method stub
-			return null;
-		}
+	    }		
 }
