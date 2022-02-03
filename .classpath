@@ -49,5 +49,6 @@
 			<attribute name="maven.scope" value="compile"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="/springmvc.java.config"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
