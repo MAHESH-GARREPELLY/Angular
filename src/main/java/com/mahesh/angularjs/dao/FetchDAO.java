@@ -2,7 +2,9 @@ package com.mahesh.angularjs.dao;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
+import org.hibernate.HibernateException;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,7 +12,6 @@ import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.boot.registry.internal.StandardServiceRegistryImpl;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.mapping.List;
 import org.hibernate.service.ServiceRegistry;
 
 import com.mahesh.angularjs.model.Contact;
@@ -81,13 +82,19 @@ public class FetchDAO {
 			
 			}
 			
+			tx.commit();
 			
 			
-		}catch (Exception e) {
+			
+		}catch (HibernateException e) {
 			// TODO: handle exception
+			if(tx!=null) tx.rollback();
+			e.printStackTrace();
+		}finally {
+			session.close();
+			
 		}
-		return null;
-		
+		return conArrList;
 	}
 	
 	// rajendra method
@@ -98,7 +105,12 @@ public class FetchDAO {
 		System.out.println("git test");
 	}	
 	
+	//update method
 	
+	public void updateRecord() {
+		
+		
+	}
 	
 	
 	
