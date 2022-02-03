@@ -37,8 +37,8 @@ public class FetchDAO {
 	
 	
 	
-	public void insertRecord() {
-		System.out.println("INSERT A RECORD...........");
+	public void insertRecord(String firstname,String middlename,String lastname,String  gender,String email,String phone,String address,String city,int pincode,byte profile) {
+		System.out.println("INSERT A RECORD INTO DATABASE...........");
 		getFactory();
 		  Session session=factory.openSession();
 		  
@@ -105,11 +105,39 @@ public class FetchDAO {
 		System.out.println("git test");
 	}	
 	
-	//update method
+	//update method for record
 	
-	public void updateRecord() {
+	public void updateRecord(Integer id,String firstname, String middlename,String lastname,String gender,String email,String phone,String address,String city,int pincode,byte profile) {
+		
+		getFactory();
+		Session session=factory.openSession();
+		Transaction tx=null;
+		try {
+			tx=session.beginTransaction();
+			String sql="Update test.Contact set firstname='"+firstname+"',middlename='"+middlename+"',lastname='"+lastname+"',gender='"+gender+"',email='"+email+"',phone='"+phone+"',address='"+address+"',city='"+city+"',pincode='"+pincode+"',profile='"+profile+"'";
+			
+			System.out.println("update sql statement is "+sql);
+			SQLQuery query=session.createSQLQuery(sql);
+			query.executeUpdate();
+			tx.commit();
+			
+		}catch (HibernateException e) {
+			// TODO: handle exception
+			if(tx!=null) tx.rollback();
+			e.printStackTrace();
+			
+		}finally {
+			session.close();
+		}
+		
+	}
+	
+	
+	
+	public void deleteRecord() {
 		
 		
+		getFactory();
 	}
 	
 	
